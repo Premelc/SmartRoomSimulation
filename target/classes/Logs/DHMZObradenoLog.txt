@@ -1,0 +1,37 @@
+        Accessing collection DHMZObradeno
+        8761 Entries expected 
+        8760 DHMZObradeno readings entered at: Sun May 15 16:04:51 CEST 2022
+        Elapsed time: 718ms
+ 
+        FAILED TO LOAD DOCUMENTS:  Sun May 15 16:04:51 CEST 2022
+[Ljava.lang.StackTraceElement;@1372ed45
+state should be: writes is not an empty list
+        Elapsed time: 723ms
+        FAILED TO LOAD DOCUMENTS:  Sun May 15 16:04:51 CEST 2022
+[Ljava.lang.StackTraceElement;@6a79c292
+state should be: writes is not an empty list
+        Elapsed time: 725ms
+        FAILED TO LOAD DOCUMENTS:  Sun May 15 16:04:51 CEST 2022
+[Ljava.lang.StackTraceElement;@37574691
+state should be: writes is not an empty list
+        Elapsed time: 726ms
+        FAILED TO LOAD DOCUMENTS:  Sun May 15 16:04:51 CEST 2022
+[Ljava.lang.StackTraceElement;@25359ed8
+state should be: writes is not an empty list
+        Elapsed time: 727ms
+        FAILED TO LOAD DOCUMENTS:  Sun May 15 16:04:51 CEST 2022
+[Ljava.lang.StackTraceElement;@21a947fe
+state should be: writes is not an empty list
+        Elapsed time: 729ms
+        FAILED TO LOAD DOCUMENTS:  Sun May 15 16:04:51 CEST 2022
+[Ljava.lang.StackTraceElement;@5606c0b
+state should be: writes is not an empty list
+        Elapsed time: 730ms
+        FAILED TO LOAD DOCUMENTS:  Sun May 15 16:04:51 CEST 2022
+[Ljava.lang.StackTraceElement;@80ec1f8
+state should be: writes is not an empty list
+        Elapsed time: 731ms
+        FAILED TO LOAD DOCUMENTS:  Sun May 15 16:04:51 CEST 2022
+[Ljava.lang.StackTraceElement;@1445d7f
+state should be: writes is not an empty list
+        Elapsed time: 732ms
