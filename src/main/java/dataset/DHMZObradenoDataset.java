@@ -7,19 +7,52 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
+import static dataset.Filenames.AlphaNumericString;
+
 public class DHMZObradenoDataset implements Dataset {
 
     public static final DateTimeFormatter DateFormatter = DateTimeFormatter.ofPattern("d.MM.yyyy.");
     public static final DateTimeFormatter TimeFormatter = DateTimeFormatter.ofPattern("hh:MM:SS");
 
-    private LocalDate datum;
-    private LocalTime vrijeme;
+    private String _id;
+    private long vrijeme;
     private Timestamp ts;
     private float zracenje;
     private float temperatura;
     private float smjerVjetra;
     private float brzinaVjetra;
     private float relativnaVlaznost;
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id() {
+
+        int n = 20;
+
+        StringBuilder sb = new StringBuilder(n);
+
+        for (int i = 0; i < n; i++) {
+
+            // generate a random number between
+            // 0 to AlphaNumericString variable length
+            int index
+                    = (int)(AlphaNumericString.length()
+                    * Math.random());
+
+            // add Character one by one in end of sb
+            sb.append(AlphaNumericString
+                    .charAt(index));
+        }
+        String prefix = String.valueOf(System.currentTimeMillis());
+        String sufix = String.valueOf(System.currentTimeMillis());
+
+        prefix = prefix.substring(prefix.length()-4 , prefix.length()-2);
+        sufix = sufix.substring(prefix.length()-2 , prefix.length());
+
+        this._id = ( prefix + sb.toString() + sufix);
+    }
 
     public Timestamp getTs() {
         return ts;
@@ -29,19 +62,13 @@ public class DHMZObradenoDataset implements Dataset {
         this.ts = ts;
     }
 
-    public LocalDate getDatum() {
-        return datum;
-    }
 
-    public void setDatum(LocalDate datum) {
-        this.datum = datum;
-    }
 
-    public LocalTime getVrijeme() {
+    public long getVrijeme() {
         return vrijeme;
     }
 
-    public void setVrijeme(LocalTime vrijeme) {
+    public void setVrijeme(long vrijeme) {
         this.vrijeme = vrijeme;
     }
 
@@ -86,11 +113,10 @@ public class DHMZObradenoDataset implements Dataset {
     }
 
     public DHMZObradenoDataset(String[]csv){
-            this.setDatum(LocalDate.parse(Reader.parseDateTime(csv[0])[0]));
-            this.setVrijeme(LocalTime.parse(Reader.parseDateTime(csv[0])[1]));
-
+            //this.set_id();
             this.setTs(Timestamp.valueOf(LocalDate.parse(Reader.parseDateTime(csv[0])[0]) + " " + Reader.parseDateTime(csv[0])[1] ));
             this.getTs().setTime(this.getTs().getTime() + 7200000 );
+            this.setVrijeme(this.getTs().getTime());
         try {
             this.setZracenje(Float.parseFloat(csv[1]));
         }catch(NumberFormatException nfe){
@@ -123,16 +149,4 @@ public class DHMZObradenoDataset implements Dataset {
         }
     }
 
-    @Override
-    public String toString() {
-        return "DHMZobradeno{" +
-                "datum=" + datum +
-                ", vrijeme=" + vrijeme +
-                ", zracenje=" + zracenje +
-                ", temperatura=" + temperatura +
-                ", smjerVjetra=" + smjerVjetra +
-                ", brzinaVjetra=" + brzinaVjetra +
-                ", relativnaVlaznost=" + relativnaVlaznost +
-                '}';
-    }
 }

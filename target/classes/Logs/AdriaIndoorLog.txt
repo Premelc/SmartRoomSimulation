@@ -1,0 +1,12 @@
+        Accessing collection adriaIndoor
+        128978680 Entries expected 
+        Accessing collection adriaIndoor
+        128978680 Entries expected 
+        Total readings entered: 151828083
+        Elapsed time: 2269882ms
+        Accessing collection adriaIndoor
+        128978680 Entries expected 
+        Accessing collection adriaIndoor
+        128978680 Entries expected 
+        Total readings entered: 151828083
+        Elapsed time: 2073537ms

@@ -5,12 +5,14 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
+import static dataset.Filenames.AlphaNumericString;
+
 public class AdriaIndoorDataset implements Dataset{
     public static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.MM.yyyy.");
 
+    private String _id;
     private int RB;
     private String roomName;
-    private LocalDate datum;
     private LocalTime vrijeme;
     private Timestamp timestamp;
     private int zadana;
@@ -24,12 +26,35 @@ public class AdriaIndoorDataset implements Dataset{
     private int wcSet;
     private int wcMjerena;
 
-    public LocalDate getDatum() {
-        return datum;
+    public String get_id() {
+        return _id;
     }
 
-    public void setDatum(LocalDate datum) {
-        this.datum = datum;
+    public void set_id() {
+
+        int n = 20;
+
+        StringBuilder sb = new StringBuilder(n);
+
+        for (int i = 0; i < n; i++) {
+
+            // generate a random number between
+            // 0 to AlphaNumericString variable length
+            int index
+                    = (int)(AlphaNumericString.length()
+                    * Math.random());
+
+            // add Character one by one in end of sb
+            sb.append(AlphaNumericString
+                    .charAt(index));
+        }
+        String prefix = String.valueOf(System.currentTimeMillis());
+        String sufix = String.valueOf(System.currentTimeMillis());
+
+        prefix = prefix.substring(prefix.length()-4 , prefix.length()-2);
+        sufix = sufix.substring(prefix.length()-2 , prefix.length());
+
+        this._id = ( prefix + sb.toString() + sufix);
     }
 
     public LocalTime getVrijeme() {
@@ -147,7 +172,7 @@ public class AdriaIndoorDataset implements Dataset{
     //MAIN CONSTRUCTOR
     public AdriaIndoorDataset(String[] csv){
         this.setRB(Integer.parseInt(csv[0]));
-        this.setDatum(LocalDate.parse(csv[1] , AdriaIndoorDataset.formatter));
+        //this.set_id();
         this.setVrijeme(LocalTime.parse(csv[2]));
         this.setTimestamp(Timestamp.valueOf(LocalDate.parse(csv[1] , AdriaIndoorDataset.formatter) + " " + csv[2]));
         this.getTimestamp().setTime(this.getTimestamp().getTime() + 7200000);
@@ -167,8 +192,10 @@ public class AdriaIndoorDataset implements Dataset{
     @Override
     public String toString() {
         return "AdriaIndoorDataset{" +
-                "RB=" + RB +
+                "_id='" + _id + '\'' +
+                ", RB=" + RB +
                 ", roomName='" + roomName + '\'' +
+                ", vrijeme=" + vrijeme +
                 ", timestamp=" + timestamp +
                 ", zadana=" + zadana +
                 ", izmjerena=" + izmjerena +

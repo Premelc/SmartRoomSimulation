@@ -3,16 +3,17 @@ package Sim;
 import DB.Connect;
 import DB.InsertDocuments;
 import Simulations.Simulator;
-import com.mongodb.client.MongoClient;
+import com.mongodb.client.*;
+import com.mongodb.client.model.*;
 import dataset.Filenames;
+import org.bson.*;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 import static Simulations.AdriaIndoorSimulator.AdriaLog;
 import static Simulations.DHMZObradenoSimulator.DHMZObradenoLog;
-import static dataset.Filenames.AdriaCollectionName;
-import static dataset.Filenames.DHMZObradenoCollectionName;
+import static dataset.Filenames.*;
 
 public class mainSmartRoomSimulator{
 
@@ -30,8 +31,9 @@ public class mainSmartRoomSimulator{
         t2.start();
         //t3.start();
         */
-
-        archive(mongoClient);
+        alternateArchive(mongoClient);
+        //archive(mongoClient);
+        //createIndexes(mongoClient);
 
 
         long end1 = System.currentTimeMillis();
@@ -41,9 +43,31 @@ public class mainSmartRoomSimulator{
     }
 
     public static void archive(MongoClient mongoClient){
+        //Sprema sve AdriaIndoor podatke u jednu kolekciju ~150mil dokumenata
         InsertDocuments.insertAll(DHMZObradenoLog, DHMZObradenoCollectionName , Filenames.DHMZObradenoFileNames , Filenames.DHMZObradenoFolderNames, mongoClient ,  Filenames.DHMZObradeniRes);
         InsertDocuments.insertAll(AdriaLog, AdriaCollectionName , Filenames.adriaRoomNames , Filenames.adriaFolderNames, mongoClient ,  Filenames.AdriaRes);
         //TODO dodati insertAll za DHMZBase podatke
+    }
+
+    public static void alternateArchive(MongoClient mongoClient){
+        InsertDocuments.insertAllAlternate(DHMZObradenoLog, DHMZObradenoCollectionName , Filenames.DHMZObradenoFileNames , Filenames.DHMZObradenoFolderNames, mongoClient ,  Filenames.DHMZObradeniRes);
+        //InsertDocuments.insertAllAlternate(AdriaLog, AdriaCollectionName, Filenames.adriaRoomNames , Filenames.adriaFolderNames, mongoClient ,  Filenames.AdriaRes);
+        //TODO dodati insertAllAlternate za DHMZBase podatke
+    }
+
+    public static void createIndexes(MongoClient mongoClient){
+        String[] years = {"2013" , "2014" , "2015" , "2016" , "2017" , "2018" , "2019" , "2020" , "2021"};
+
+        for(String s : years){
+            MongoDatabase db = mongoClient.getDatabase(s);
+            for(String str : adriaRoomNames){
+                //db.getCollection(str).drop();
+                String c =  str.substring(5 , str.length()-4);
+               String res = db.getCollection(c).createIndex(Indexes.descending("vrijeme"));
+               System.out.println("created index : "+ res + " in " + s + " " + str);
+            }
+        }
+
     }
 
 }

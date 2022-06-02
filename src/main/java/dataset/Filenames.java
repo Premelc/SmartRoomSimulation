@@ -13,9 +13,9 @@ public class Filenames {
     public static String DHMZObradeniRes = "C:\\WORKSPACE\\IntelliJ Idea\\SmartRoomSimulation\\src\\main\\resources\\DATA\\DHMZ\\";
 
 
-    public static String AdriaCollectionName = "AdriaIndoor";
-    public static String DHMZBaseCollectionName = "DHMZBase";
-    public static String DHMZObradenoCollectionName = "DHMZObradeno";
+    public static String AdriaCollectionName = "adriaIndoor";
+    public static String DHMZBaseCollectionName = "dhmzBase";
+    public static String DHMZObradenoCollectionName = "dhmzObradeno";
     public static String[] DHMZObradenoFolderNames =
             {
                     "Obradeni_meteoroloski podaci\\2014" , "Obradeni_meteoroloski podaci\\2015" , " Obradeni_meteoroloski podaci\\2016",
@@ -133,5 +133,9 @@ public class Filenames {
                     "Data2017.txt","Data2018.txt","Data2019.txt",
                     "Data2020.txt","Data2021.txt"
             };
+
+    public static String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            + "0123456789"
+            + "abcdefghijklmnopqrstuvxyz";
 
 }
