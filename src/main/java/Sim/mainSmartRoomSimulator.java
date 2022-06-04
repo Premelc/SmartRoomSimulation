@@ -51,7 +51,7 @@ public class mainSmartRoomSimulator{
 
     public static void alternateArchive(MongoClient mongoClient){
         InsertDocuments.insertAllAlternate(DHMZObradenoLog, DHMZObradenoCollectionName , Filenames.DHMZObradenoFileNames , Filenames.DHMZObradenoFolderNames, mongoClient ,  Filenames.DHMZObradeniRes);
-        //InsertDocuments.insertAllAlternate(AdriaLog, AdriaCollectionName, Filenames.adriaRoomNames , Filenames.adriaFolderNames, mongoClient ,  Filenames.AdriaRes);
+        InsertDocuments.insertAllAlternate(AdriaLog, AdriaCollectionName, Filenames.adriaRoomNames , Filenames.adriaFolderNames, mongoClient ,  Filenames.AdriaRes);
         //TODO dodati insertAllAlternate za DHMZBase podatke
     }
 

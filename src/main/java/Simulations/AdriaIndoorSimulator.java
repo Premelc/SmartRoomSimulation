@@ -13,7 +13,7 @@ import static dataset.Filenames.AdriaCollectionName;
 
 public class AdriaIndoorSimulator extends TimerTask {
 
-        public static String AdriaLog = "C:\\WORKSPACE\\IntelliJ Idea\\SmartRoomSimulation\\src\\main\\resources\\Logs\\AdriaIndoorLog.txt";
+        public static String AdriaLog = "src\\main\\resources\\Logs\\AdriaIndoorLog.txt";
         private MongoClient mongoClient;
 
     public AdriaIndoorSimulator(MongoClient mongoClient) {

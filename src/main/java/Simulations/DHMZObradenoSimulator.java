@@ -12,7 +12,7 @@ import static dataset.Filenames.DHMZObradenoCollectionName;
 
 public class DHMZObradenoSimulator extends TimerTask {
 
-    public static String DHMZObradenoLog = "C:\\WORKSPACE\\IntelliJ Idea\\SmartRoomSimulation\\src\\main\\resources\\Logs\\DHMZObradenoLog.txt";
+    public static String DHMZObradenoLog = "src\\main\\resources\\Logs\\DHMZObradenoLog.txt";
     private MongoClient mongoClient;
 
     public DHMZObradenoSimulator(MongoClient mongoClient) {

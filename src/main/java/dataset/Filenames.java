@@ -6,11 +6,11 @@ public class Filenames {
     public static String archiveDBName= "SmartRoomArchiveData";
 
 
-    public static String Res = "C:\\WORKSPACE\\IntelliJ Idea\\SmartRoomSimulation\\src\\main\\resources\\";
-    public static String Data = "C:\\WORKSPACE\\IntelliJ Idea\\SmartRoomSimulation\\src\\main\\resources\\DATA\\";
-    public static String AdriaRes = "C:\\WORKSPACE\\IntelliJ Idea\\SmartRoomSimulation\\src\\main\\resources\\DATA\\ADRIA\\";
-    public static String DHMZBaseRes = "C:\\WORKSPACE\\IntelliJ Idea\\SmartRoomSimulation\\src\\main\\resources\\DATA\\DHMZ\\BASE\\";
-    public static String DHMZObradeniRes = "C:\\WORKSPACE\\IntelliJ Idea\\SmartRoomSimulation\\src\\main\\resources\\DATA\\DHMZ\\";
+    public static String Res = "src\\main\\resources\\";
+    public static String Data = "src\\main\\resources\\DATA\\";
+    public static String AdriaRes = "src\\main\\resources\\DATA\\ADRIA\\";
+    public static String DHMZBaseRes = "src\\main\\resources\\DATA\\DHMZ\\BASE\\";
+    public static String DHMZObradeniRes = "src\\main\\resources\\DATA\\DHMZ\\";
 
 
     public static String AdriaCollectionName = "adriaIndoor";
