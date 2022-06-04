@@ -1,2 +1,2 @@
-DATA/
-Logs/
+/src/main/resources/DATA/
+/src/main/resources/Logs/
